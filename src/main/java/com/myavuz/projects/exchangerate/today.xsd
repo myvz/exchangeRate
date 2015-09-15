@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Tarih_Date" type="Tarih_DateType"/>
+  <xs:complexType name="Tarih_DateType">
+    <xs:sequence>
+      <xs:element type="CurrencyType" name="Currency" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="Tarih"/>
+    <xs:attribute type="xs:string" name="Date"/>
+    <xs:attribute type="xs:string" name="Bulten_No"/>
+  </xs:complexType>
+  <xs:complexType name="CurrencyType">
+    <xs:sequence>
+      <xs:element name="Unit">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="Isim"/>
+      <xs:element type="xs:string" name="CurrencyName"/>
+      <xs:element type="xs:string" name="ForexBuying"/>
+      <xs:element type="xs:string" name="ForexSelling"/>
+      <xs:element type="xs:string" name="BanknoteBuying"/>
+      <xs:element type="xs:string" name="BanknoteSelling"/>
+      <xs:element type="xs:string" name="CrossRateUSD"/>
+      <xs:element name="CrossRateOther">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value=""/>
+            <xs:enumeration value="1.1278"/>
+            <xs:enumeration value="1.543"/>
+            <xs:enumeration value="3.3106"/>
+            <xs:enumeration value="1.40866"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="CrossOrder" use="optional"/>
+    <xs:attribute type="xs:string" name="Kod" use="optional"/>
+    <xs:attribute type="xs:string" name="CurrencyCode" use="optional"/>
+  </xs:complexType>
+</xs:schema>
